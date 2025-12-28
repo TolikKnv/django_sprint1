@@ -47,13 +47,13 @@ posts = [
 # Create your views here.
 def index(request):
     template = "blog/index.html"
-    context = {"posts": posts}
+    context = {"posts": list(reversed(posts))}
     return render(request, template, context)
 
 
-def post_detail(request, pk):
+def post_detail(request, id):
     template = "blog/detail.html"
-    context = {'post': posts[pk]}
+    context = {"post": posts[id]}
     return render(request, template, context)
 
 
